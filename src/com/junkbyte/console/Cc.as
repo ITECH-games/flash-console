@@ -644,7 +644,15 @@ package com.junkbyte.console {
 			return false;
 		}
 		public static function set visible(v:Boolean):void{
-			if(_console) _console.visible = v;
+			if(_console)
+			{
+				_console.visible = v;
+			}
+		}
+
+		public static function listenConsoleVisible(listener:Function):void
+		{
+			if (_console) _console.addEventListener('visibilityChanged', listener);
 		}
 		/**
 		 * Start/stop FPS monitor graph.

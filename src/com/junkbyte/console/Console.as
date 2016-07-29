@@ -389,8 +389,15 @@ package com.junkbyte.console
 			return _panels.mainPanel.y;
 		}
 		override public function set visible(v:Boolean):void{
-			super.visible = v;
-			if(v) _panels.mainPanel.visible = true;
+			if (super.visible != v)
+			{
+				super.visible = v;
+				if (v)
+				{
+					_panels.mainPanel.visible = true;
+				}
+				dispatchEvent(new Event('visibilityChanged'));
+			}
 		}
 		//
 		//

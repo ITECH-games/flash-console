@@ -1,0 +1,27 @@
+<project name="console" basedir="..">
+
+	<property environment="env"/>
+	<property name="FLEX_HOME" value="${env.FLEX_HOME}"/>
+
+	<property name="src.dir" value="${basedir}/src" />
+	<property name="build.dir" value="${basedir}/build" />
+	<property name="bin.dir" value="${basedir}/bin" />
+
+	<property name="src.package.path" value="${src.dir}/com/junkbyte/console/" />
+
+	<property file="${FLEX_HOME}/build.properties"/>
+
+	<property name="local.playerglobal.version" value="12.0"/>
+
+	<taskdef resource="flexTasks.tasks" classpath="${env.FLEX_HOME}/ant/lib/flexTasks.jar"/>
+
+	<target name="swc">
+		<echo message="Compiling SWC" />
+		<property file="${build.dir}/project.properties"/>
+		<compc output="${bin.dir}/console.swc">
+			<load-config filename="${FLEX_HOME}/frameworks/flex-config.xml" />
+			<include-sources dir="${src.package.path}" includes="*" />
+			<compiler.source-path path-element="${src.dir}" />
+		</compc>
+	</target>
+</project>

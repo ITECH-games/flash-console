@@ -1,0 +1,8 @@
+[Oo]bj/ # FlashDevelop obj
+[Bb]in/ # FlashDevelop bin
+
+# Other files and folders
+.settings/
+.idea
+*.iml
+*.as3proj
